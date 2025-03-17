@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://isvsme53i3el"]
+
+[ext_resource type="Texture2D" uid="uid://c4t67m57ptnfy" path="res://assets/background/background.png" id="1_nax64"]
+[ext_resource type="Texture2D" uid="uid://cy0o1etsqr1x2" path="res://assets/background/bg.png" id="2_lffb2"]
+[ext_resource type="Texture2D" uid="uid://dhtfcxj0ftev6" path="res://assets/background/ocean.png" id="2_ts5sv"]
+[ext_resource type="Texture2D" uid="uid://djpvts4air1r5" path="res://assets/background/beach.png" id="3_1vihb"]
+[ext_resource type="Texture2D" uid="uid://8h3jjw0dpedp" path="res://assets/background/grass.png" id="4_c0w12"]
+[ext_resource type="Texture2D" uid="uid://dm0xtofg1pdv1" path="res://assets/background/birds.png" id="5_7vm01"]
+
+[node name="bg" type="ParallaxBackground"]
+metadata/_edit_vertical_guides_ = [1152.0]
+metadata/_edit_horizontal_guides_ = [576.0, 648.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_nax64")
+centered = false
+
+[node name="clouds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lffb2")
+centered = false
+
+[node name="ocean" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ocean"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ts5sv")
+centered = false
+
+[node name="beach" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="beach"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_1vihb")
+centered = false
+
+[node name="grass" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grass"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_c0w12")
+centered = false
+
+[node name="birds" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="birds"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_7vm01")
+centered = false
