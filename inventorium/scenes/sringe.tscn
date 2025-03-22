@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://buvc8k35xaegm"]
+
+[ext_resource type="Texture2D" uid="uid://453ktq7i7shr" path="res://assets/sprites/yellow_item.png" id="1_sywhb"]
+
+[node name="sringe" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_sywhb")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+z_index = 1
+polygon = PackedVector2Array(89, 23, 81, 32, 86, 38, 79, 43, 68, 38, 53, 50, 32, 70, 31, 74, 37, 81, 30, 87, 23, 94, 19, 98, 28, 108, 32, 103, 48, 90, 58, 99, 77, 83, 93, 69, 98, 65, 89, 57, 99, 50, 108, 56, 115, 45, 93, 24)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp10m02ejka3x"]
+
+[ext_resource type="Texture2D" uid="uid://b0ji3u313bqiw" path="res://assets/sprites/red_item.png" id="1_v6vks"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g03yg"]
+radius = 28.0
+height = 70.0
+
+[node name="medicine" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_v6vks")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(60, 63)
+shape = SubResource("CapsuleShape2D_g03yg")

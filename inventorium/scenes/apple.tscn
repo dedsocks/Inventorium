@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://872cn6vr2ewb"]
+
+[ext_resource type="Texture2D" uid="uid://byrh0u6a6maui" path="res://assets/sprites/apple.png" id="1_4efao"]
+
+[node name="apple" type="Area2D"]
+scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_4efao")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.1, 1.1)
+polygon = PackedVector2Array(72, 14, 41, 30, 25, 43, 40, 64, 30, 82, 42, 109, 74, 108, 92, 91, 84, 71, 83, 60, 92, 53, 97, 14)

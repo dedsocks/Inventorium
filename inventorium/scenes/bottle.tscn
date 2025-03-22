@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dewri6i5d8vhv"]
+
+[ext_resource type="Texture2D" uid="uid://bwo0rs0nrbm71" path="res://assets/sprites/bottle.png" id="1_dbvw5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8e14"]
+radius = 22.0
+height = 74.0
+
+[node name="bottle" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_dbvw5")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(58, 73)
+shape = SubResource("CapsuleShape2D_f8e14")
