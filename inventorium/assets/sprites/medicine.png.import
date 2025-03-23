@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ji3u313bqiw"
-path="res://.godot/imported/red_item.png-38791d1eb4306ea588ecffb00f0c0327.ctex"
+uid="uid://y8nia15r7xfc"
+path="res://.godot/imported/medicine.png-63085d953084e0eb908a3af44f2b6bee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/red_item.png"
-dest_files=["res://.godot/imported/red_item.png-38791d1eb4306ea588ecffb00f0c0327.ctex"]
+source_file="res://assets/sprites/medicine.png"
+dest_files=["res://.godot/imported/medicine.png-63085d953084e0eb908a3af44f2b6bee.ctex"]
 
 [params]
 

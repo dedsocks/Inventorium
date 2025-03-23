@@ -1,19 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp10m02ejka3x"]
 
-[ext_resource type="Texture2D" uid="uid://b0ji3u313bqiw" path="res://assets/sprites/red_item.png" id="1_v6vks"]
+[ext_resource type="Texture2D" uid="uid://y8nia15r7xfc" path="res://assets/sprites/medicine.png" id="1_j4pqv"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g03yg"]
-radius = 28.0
-height = 70.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cne58"]
+size = Vector2(25, 30)
 
 [node name="medicine" type="Area2D"]
+scale = Vector2(2.9, 2.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_v6vks")
+texture = ExtResource("1_j4pqv")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-z_index = 1
-position = Vector2(60, 63)
-shape = SubResource("CapsuleShape2D_g03yg")
+position = Vector2(29.5, 30)
+shape = SubResource("RectangleShape2D_cne58")

@@ -8,10 +8,10 @@ const START_POSITION = Vector2i(0, 300)
 
 # Waste spawning components
 var apple = preload("res://scenes/apple.tscn")
-var sringe = preload("res://scenes/sringe.tscn")
+var glove = preload("res://scenes/glove.tscn")
 var medicine = preload("res://scenes/medicine.tscn")
 var bottle = preload("res://scenes/bottle.tscn")
-var obstacleType = [apple, sringe, medicine, bottle]
+var obstacleType = [apple, glove, medicine, bottle]
 var spawnPos = [500,600,700,800,900]
 var obstacle = []
 var f = 0 #flag for checking first item
@@ -71,7 +71,7 @@ func generate_obs():
 		var obs = obsType.instantiate()
 
 		obs_x = 1152 if f != 1 else obs_x + spawnNum()
-		var obs_y = 400  
+		var obs_y = 345
 		
 		lastObs = obs
 		spawn_obs(obs, obs_x, obs_y)
@@ -80,7 +80,7 @@ func generate_obs():
 func spawn_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
 	$Obstacles.add_child(obs)  
-	obstacle.clear()
+	#obstacle.clear()
 	f = 1
 
 func spawnNum():

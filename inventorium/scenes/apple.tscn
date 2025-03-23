@@ -1,17 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://872cn6vr2ewb"]
 
-[ext_resource type="Texture2D" uid="uid://byrh0u6a6maui" path="res://assets/sprites/apple.png" id="1_4efao"]
+[ext_resource type="Texture2D" uid="uid://8in5j2luxuyg" path="res://assets/sprites/apple.png" id="1_4efao"]
 
 [node name="apple" type="Area2D"]
-scale = Vector2(1.1, 1.1)
+scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -4)
-scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_4efao")
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(1.1, 1.1)
-polygon = PackedVector2Array(72, 14, 41, 30, 25, 43, 40, 64, 30, 82, 42, 109, 74, 108, 92, 91, 84, 71, 83, 60, 92, 53, 97, 14)
+polygon = PackedVector2Array(35.7576, 15.1515, 30.9091, 15.4545, 22.4242, 16.9697, 19.0909, 25.7576, 22.7273, 26.9697, 23.6364, 30.303, 20.303, 32.4242, 20.303, 39.0909, 24.5455, 42.1212, 37.2727, 41.8182, 41.5151, 38.4848, 37.8788, 30.303, 42.1212, 25.4545, 40.6061, 18.4848)

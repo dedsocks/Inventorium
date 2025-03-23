@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvc8k35xaegm"]
+
+[ext_resource type="Texture2D" uid="uid://cm1mhib1rds3k" path="res://assets/sprites/glove.png" id="1_id4qx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfokw"]
+radius = 13.0384
+
+[node name="glove" type="Area2D"]
+scale = Vector2(2.9, 2.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_id4qx")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_dfokw")
