@@ -10,13 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Inventorium(doc)"
+config/name="Inventorium"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+red_waste=""
+blue_waste=""
+green_waste=""
+yellow_waste=""
 
 [rendering]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://8in5j2luxuyg" path="res://assets/sprites/apple.png" id="1_4efao"]
 
-[node name="apple" type="Area2D"]
+[node name="apple" type="Area2D" groups=["green_waste"]]
 scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

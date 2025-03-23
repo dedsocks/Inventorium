@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfokw"]
 radius = 13.0384
 
-[node name="glove" type="Area2D"]
+[node name="glove" type="Area2D" groups=["yellow_waste"]]
 scale = Vector2(2.9, 2.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

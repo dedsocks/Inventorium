@@ -40,6 +40,7 @@ func _ready():
 func new_game():
 	$dustbin.position = START_POSITION
 	$Camera2D.position = CAM_START_POSITION
+	$dustbin.modulate = Color.DODGER_BLUE
 	speed = START_SPEED
 	score = 0
 	gameRunning = false
@@ -53,10 +54,10 @@ func _process(delta):
 		gameRunning = true
 	
 	if gameRunning:
+		$dustbin/AnimatedSprite2D.play("move")
 		$dustbin.position.x += speed
 		$Camera2D.position.x += speed 
 		speed += delta * 0.1  
-		score = speed 
 		
 		# Code for shifting ground
 		if $Camera2D.position.x - $ground.position.x > 1.5 * screenSize.x:
@@ -80,10 +81,12 @@ func generate_obs():
 func spawn_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
 	$Obstacles.add_child(obs)  
-	#obstacle.clear()
 	f = 1
 
 func spawnNum():
 	var x = spawnPos[randi()%spawnPos.size()]
 	return x
+	
+func gameOver():
+	pass
 	

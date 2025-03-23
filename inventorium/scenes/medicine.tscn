@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cne58"]
 size = Vector2(25, 30)
 
-[node name="medicine" type="Area2D"]
+[node name="medicine" type="Area2D" groups=["red_waste"]]
 scale = Vector2(2.9, 2.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
