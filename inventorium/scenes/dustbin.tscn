@@ -141,7 +141,7 @@ scale = Vector2(0.101563, 0.103125)
 sprite_frames = SubResource("SpriteFrames_38yr6")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.725885
+frame_progress = 0.698304
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]

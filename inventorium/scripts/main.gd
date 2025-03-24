@@ -54,16 +54,24 @@ func _process(delta):
 		gameRunning = true
 	
 	if gameRunning:
+		
 		$dustbin/AnimatedSprite2D.play("move")
 		$dustbin.position.x += speed
 		$Camera2D.position.x += speed 
+		assignScore()
+		$HUD/Label.show()
 		speed += delta * 0.1  
+		
+		if $gameRunningMusic.playing == false :
+			$gameRunningMusic.play()
 		
 		# Code for shifting ground
 		if $Camera2D.position.x - $ground.position.x > 1.5 * screenSize.x:
 			$ground.position.x += screenSize.x
 		
 		generate_obs()
+		
+		
 
 # Generates obstacles 
 func generate_obs():
@@ -87,6 +95,12 @@ func spawnNum():
 	var x = spawnPos[randi()%spawnPos.size()]
 	return x
 	
+func assignScore():
+	if score < 10 :
+		$HUD/Label.text = "0" + str(score)
+	else :
+		$HUD/Label.text = str(score)
+	
 func gameOver():
-	pass
+	pass 
 	

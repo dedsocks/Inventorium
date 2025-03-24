@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cci1y4ywdyeda"
+path="res://.godot/imported/Pixelated Love.mp3-c2aa2244e8d1f8713af31c14cda5661b.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Pixelated Love.mp3"
+dest_files=["res://.godot/imported/Pixelated Love.mp3-c2aa2244e8d1f8713af31c14cda5661b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

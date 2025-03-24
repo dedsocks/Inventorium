@@ -29,25 +29,25 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("blue_waste"):
 		if status == state.BLUE :
 			get_parent().score += 1
-			print(get_parent().score)
+			area.hide()
 		else :
 			get_parent().gameOver()
 	if area.is_in_group("red_waste"):
 		if status == state.RED :
 			get_parent().score += 1
-			print(get_parent().score)
+			area.hide()
 		else :
 			get_parent().gameOver()
 	if area.is_in_group("green_waste"):
 		if status == state.GREEN :
 			get_parent().score += 1
-			print(get_parent().score)
+			area.hide()
 		else :
 			get_parent().gameOver()
 	if area.is_in_group("yellow_waste"):
 		if status == state.YELLOW :
 			get_parent().score += 1
-			print(get_parent().score)
+			area.hide()
 		else :
 			get_parent().gameOver()
 	
