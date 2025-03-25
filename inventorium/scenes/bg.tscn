@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://isvsme53i3el"]
+[gd_scene load_steps=16 format=3 uid="uid://isvsme53i3el"]
 
 [ext_resource type="Texture2D" uid="uid://c4t67m57ptnfy" path="res://assets/background/background.png" id="1_nax64"]
 [ext_resource type="Texture2D" uid="uid://cy0o1etsqr1x2" path="res://assets/background/bg.png" id="2_lffb2"]
@@ -6,6 +6,64 @@
 [ext_resource type="Texture2D" uid="uid://djpvts4air1r5" path="res://assets/background/beach.png" id="3_1vihb"]
 [ext_resource type="Texture2D" uid="uid://8h3jjw0dpedp" path="res://assets/background/grass.png" id="4_c0w12"]
 [ext_resource type="Texture2D" uid="uid://dm0xtofg1pdv1" path="res://assets/background/birds.png" id="5_7vm01"]
+[ext_resource type="Texture2D" uid="uid://tlosqvp0v2k1" path="res://assets/sprites/crow_spritesheet.png" id="7_fmfdb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g43r7"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imcji"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqo0a"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku42w"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1p7a"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6st3"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_potdw"]
+atlas = ExtResource("7_fmfdb")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyrwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g43r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imcji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqo0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku42w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1p7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6st3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_potdw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
 
 [node name="bg" type="ParallaxBackground"]
 metadata/_edit_vertical_guides_ = [1152.0]
@@ -60,3 +118,23 @@ motion_mirroring = Vector2(1152, 0)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_7vm01")
 centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(-0.1, 1)
+motion_mirroring = Vector2(1300, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxLayer"]
+position = Vector2(-72, 144)
+scale = Vector2(0.351563, 0.351563)
+sprite_frames = SubResource("SpriteFrames_qyrwg")
+autoplay = "default"
+frame = 3
+frame_progress = 0.488429
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxLayer"]
+position = Vector2(-32, 208)
+scale = Vector2(0.351563, 0.351563)
+sprite_frames = SubResource("SpriteFrames_qyrwg")
+autoplay = "default"
+frame = 4
+frame_progress = 0.703976

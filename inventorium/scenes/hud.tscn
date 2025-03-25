@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1nqudskbscch"]
+[gd_scene load_steps=3 format=3 uid="uid://1nqudskbscch"]
 
 [ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="1_6gj6f"]
+[ext_resource type="FontFile" uid="uid://b1os73ppnxpdq" path="res://assets/fonts/PixExtrusion.ttf" id="2_epd6h"]
 
 [node name="HUD" type="CanvasLayer"]
 metadata/_edit_vertical_guides_ = [594.0, 435.0, 747.0]
@@ -8,15 +9,63 @@ metadata/_edit_horizontal_guides_ = [142.0]
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.378
-anchor_top = 0.219
-anchor_right = 0.649
+anchor_left = -0.0528958
+anchor_top = 0.111
+anchor_right = 1.03737
 anchor_bottom = 0.5
-offset_left = -19.456
-offset_top = -156.912
-offset_right = 18.3519
-offset_bottom = 61.0
-theme_override_constants/outline_size = 43
-theme_override_constants/shadow_outline_size = 25
+offset_left = 60.936
+offset_top = -7.92801
+offset_right = -43.056
+offset_bottom = 140.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
 theme_override_fonts/font = ExtResource("1_6gj6f")
-theme_override_font_sizes/font_size = 400
+theme_override_font_sizes/font_size = 300
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="gameOver" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = -0.0329306
+anchor_top = 0.111
+anchor_right = 1.05897
+anchor_bottom = 0.226728
+offset_left = 34.936
+offset_top = 29.072
+offset_right = -70.9281
+offset_bottom = 105.08
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 57
+theme_override_fonts/font = ExtResource("2_epd6h")
+theme_override_font_sizes/font_size = 150
+text = "GAME OVER"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="gameStart" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = -0.0329306
+anchor_top = 0.111
+anchor_right = 1.05897
+anchor_bottom = 0.226728
+offset_left = 34.936
+offset_top = 31.072
+offset_right = -70.9281
+offset_bottom = 107.08
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("2_epd6h")
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0

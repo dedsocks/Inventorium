@@ -1,11 +1,9 @@
 extends Node
-
 # Constants
 const MAX_SPEED = 10
 const START_SPEED = 0.4
 const CAM_START_POSITION = Vector2i(576, 324)
 const START_POSITION = Vector2i(0, 300)
-
 # Waste spawning components
 var apple = preload("res://scenes/apple.tscn")
 var glove = preload("res://scenes/glove.tscn")
@@ -16,7 +14,7 @@ var spawnPos = [500,600,700,800,900]
 var obstacle = []
 var f = 0 #flag for checking first item
 var obs_x 
-
+var gameOverTriggered = false
 # Variables
 var speed
 var score
@@ -41,10 +39,13 @@ func new_game():
 	$dustbin.position = START_POSITION
 	$Camera2D.position = CAM_START_POSITION
 	$dustbin.modulate = Color.DODGER_BLUE
+	$dustbin.status = $dustbin.state.BLUE
+	$ground.position = Vector2i(0,0)
 	speed = START_SPEED
 	score = 0
 	gameRunning = false
 	obstacle.clear()
+	$HUD/gameOver.hide()
 
 func _process(delta):
 	if speed >= MAX_SPEED:
@@ -54,7 +55,6 @@ func _process(delta):
 		gameRunning = true
 	
 	if gameRunning:
-		
 		$dustbin/AnimatedSprite2D.play("move")
 		$dustbin.position.x += speed
 		$Camera2D.position.x += speed 
@@ -64,21 +64,18 @@ func _process(delta):
 		
 		if $gameRunningMusic.playing == false :
 			$gameRunningMusic.play()
-		
+			
 		# Code for shifting ground
 		if $Camera2D.position.x - $ground.position.x > 1.5 * screenSize.x:
 			$ground.position.x += screenSize.x
 		
 		generate_obs()
-		
-		
 
 # Generates obstacles 
 func generate_obs():
 	if obstacle.is_empty() or ($Camera2D.position.x - lastObs.position.x > 300):
 		var obsType = obstacleType.pick_random()  
 		var obs = obsType.instantiate()
-
 		obs_x = 1152 if f != 1 else obs_x + spawnNum()
 		var obs_y = 345
 		
@@ -91,16 +88,33 @@ func spawn_obs(obs, x, y):
 	$Obstacles.add_child(obs)  
 	f = 1
 
+# Randomizes spawn distance
 func spawnNum():
 	var x = spawnPos[randi()%spawnPos.size()]
 	return x
-	
+
+# Assigns score onto the HUD
 func assignScore():
-	if score < 10 :
+	if score < 10:
 		$HUD/Label.text = "0" + str(score)
-	else :
+	else:
 		$HUD/Label.text = str(score)
-	
+
 func gameOver():
-	pass 
+	$HUD/Label.hide()
+	$HUD/gameOver.show()
+	if $dustbin/oof:
+		$dustbin/oof.play()
+	$gameRunningMusic.stop()
+	# Stop movement
+	gameRunning = false
 	
+	$dustbin/AnimatedSprite2D.stop()
+	$dustbin/AnimatedSprite2D.play("death")
+	await $dustbin/AnimatedSprite2D.animation_finished
+	
+	await get_tree().create_timer(0.5).timeout
+	if $ending:
+		$ending.play()
+	await get_tree().create_timer(1.0).timeout
+	get_tree().paused = true

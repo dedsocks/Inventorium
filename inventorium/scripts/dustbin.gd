@@ -30,25 +30,35 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if status == state.BLUE :
 			get_parent().score += 1
 			area.hide()
+			$eat.play()
 		else :
-			get_parent().gameOver()
+			area.hide()
+			deathCall()
 	if area.is_in_group("red_waste"):
 		if status == state.RED :
 			get_parent().score += 1
 			area.hide()
+			$eat.play()
 		else :
-			get_parent().gameOver()
+			area.hide()
+			deathCall()
 	if area.is_in_group("green_waste"):
 		if status == state.GREEN :
 			get_parent().score += 1
 			area.hide()
+			$eat.play()
 		else :
-			get_parent().gameOver()
+			area.hide()
+			deathCall()
 	if area.is_in_group("yellow_waste"):
 		if status == state.YELLOW :
 			get_parent().score += 1
 			area.hide()
+			$eat.play()
 		else :
-			get_parent().gameOver()
-	
+			area.hide()
+			deathCall()
+
+func deathCall():
+	get_parent().gameOver()
 			
