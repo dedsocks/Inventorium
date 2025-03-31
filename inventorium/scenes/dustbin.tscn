@@ -172,12 +172,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2idv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2idv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2idv")
 }],
 "loop": true,
 "name": &"move",
@@ -196,9 +190,9 @@ z_index = 2
 texture_filter = 1
 scale = Vector2(0.101563, 0.103125)
 sprite_frames = SubResource("SpriteFrames_38yr6")
-animation = &"death"
+animation = &"move"
 autoplay = "idle"
-frame = 2
+frame_progress = 0.26179
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2pgwf6fwnktn"]
+[gd_scene load_steps=12 format=3 uid="uid://c2pgwf6fwnktn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bwtbe"]
 [ext_resource type="PackedScene" uid="uid://isvsme53i3el" path="res://scenes/bg.tscn" id="1_f0xhv"]
@@ -7,9 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://1nqudskbscch" path="res://scenes/hud.tscn" id="5_viec4"]
 [ext_resource type="AudioStream" uid="uid://cci1y4ywdyeda" path="res://assets/sound/Pixelated Love.mp3" id="6_atnfe"]
 [ext_resource type="AudioStream" uid="uid://k8bx8p8bplbu" path="res://assets/sound/negative_beeps-6008.mp3" id="7_7c30k"]
+[ext_resource type="AudioStream" uid="uid://cgf8d8lnbcqp4" path="res://assets/sound/Pixel Rush Paradise.mp3" id="8_5ln0j"]
+[ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="9_1nsl3"]
+[ext_resource type="Texture2D" uid="uid://dv4ddtke01vip" path="res://assets/sprites/button.png" id="10_rrkyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r836t"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_bwtbe")
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="bg" parent="." instance=ExtResource("1_f0xhv")]
 
@@ -30,3 +36,32 @@ stream = ExtResource("6_atnfe")
 
 [node name="ending" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7c30k")
+
+[node name="gameStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5ln0j")
+
+[node name="crow" type="AnimatedSprite2D" parent="."]
+
+[node name="startButton" type="Button" parent="." groups=["startButtons"]]
+offset_left = 476.0
+offset_top = 249.0
+offset_right = 677.0
+offset_bottom = 342.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.635294, 0.635294, 0.635294, 0.427451)
+theme_override_colors/icon_hover_color = Color(0.633757, 0.633757, 0.633757, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_1nsl3")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r836t")
+action_mode = 0
+text = "START"
+icon = ExtResource("10_rrkyw")
+flat = true
+autowrap_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

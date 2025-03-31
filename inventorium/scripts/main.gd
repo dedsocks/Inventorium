@@ -46,15 +46,17 @@ func new_game():
 	gameRunning = false
 	obstacle.clear()
 	$HUD/gameOver.hide()
+	$HUD/gameOverScore.hide()
+	$gameStart.play()
 
 func _process(delta):
 	if speed >= MAX_SPEED:
 		speed = MAX_SPEED
 		
-	if Input.is_action_pressed("ui_accept"):
-		gameRunning = true
-	
 	if gameRunning:
+		$startButton.hide()
+		$HUD/menuButton.hide()
+		$HUD/gameStart.hide()
 		$dustbin/AnimatedSprite2D.play("move")
 		$dustbin.position.x += speed
 		$Camera2D.position.x += speed 
@@ -103,6 +105,8 @@ func assignScore():
 func gameOver():
 	$HUD/Label.hide()
 	$HUD/gameOver.show()
+	$HUD/gameOverScore.text = 'score : ' + str(score)
+	$HUD/gameOverScore.show()
 	if $dustbin/oof:
 		$dustbin/oof.play()
 	$gameRunningMusic.stop()
@@ -118,3 +122,8 @@ func gameOver():
 		$ending.play()
 	await get_tree().create_timer(1.0).timeout
 	get_tree().paused = true
+
+
+func _on_start_button_pressed() -> void:
+	gameRunning = true
+	$gameStart.stop()
