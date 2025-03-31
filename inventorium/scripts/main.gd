@@ -14,17 +14,16 @@ var spawnPos = [500,600,700,800,900]
 var obstacle = []
 var f = 0 #flag for checking first item
 var obs_x 
-var gameOverTriggered = false
 # Variables
 var speed
 var score
+var highScore
 var gameRunning: bool
 var screenSize: Vector2i
 var lastObs
 var groundHeight: int
 
 func _ready():
-	new_game()
 	screenSize = get_window().size
 	groundHeight = $ground.get_node("Sprite2D").texture.get_height()
 	
@@ -33,6 +32,7 @@ func _ready():
 		var obstacle_container = Node2D.new()
 		obstacle_container.name = "Obstacles"
 		add_child(obstacle_container)
+	new_game()
 
 # Reset game parameters
 func new_game():
@@ -41,19 +41,23 @@ func new_game():
 	$dustbin.modulate = Color.DODGER_BLUE
 	$dustbin.status = $dustbin.state.BLUE
 	$ground.position = Vector2i(0,0)
-	speed = START_SPEED
-	score = 0
-	gameRunning = false
-	obstacle.clear()
 	$HUD/gameOver.hide()
 	$HUD/gameOverScore.hide()
+	speed = START_SPEED
+	score = 0
+	f = 0
+	obstacle.clear()
 	$gameStart.play()
 
 func _process(delta):
 	if speed >= MAX_SPEED:
 		speed = MAX_SPEED
-		
+			
 	if gameRunning:
+		$gameStart.stop()
+		$HUD/highScore.show()
+		$HUD/homeButton.show()
+		$HUD/pauseButton.show()
 		$startButton.hide()
 		$HUD/menuButton.hide()
 		$HUD/gameStart.hide()
@@ -103,9 +107,14 @@ func assignScore():
 		$HUD/Label.text = str(score)
 
 func gameOver():
+	$HUD/retryButton.show()
+	$HUD/endHomeButton.show()
+	$HUD/highScore.hide()
+	$HUD/pauseButton.hide()
+	$HUD/homeButton.hide()
 	$HUD/Label.hide()
 	$HUD/gameOver.show()
-	$HUD/gameOverScore.text = 'score : ' + str(score)
+	$HUD/gameOverScore.text = 'Highscore : '+'\nScore : ' + str(score) 
 	$HUD/gameOverScore.show()
 	if $dustbin/oof:
 		$dustbin/oof.play()
@@ -123,7 +132,18 @@ func gameOver():
 	await get_tree().create_timer(1.0).timeout
 	get_tree().paused = true
 
-
+# Buttons pressed 
 func _on_start_button_pressed() -> void:
 	gameRunning = true
 	$gameStart.stop()
+
+# Restarts game
+func restart():
+	get_tree().paused = false
+	gameRunning = true
+	
+	if $Obstacles:
+		for obs in $Obstacles.get_children():
+			obs.queue_free()
+	
+	_ready()

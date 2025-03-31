@@ -25,6 +25,7 @@ blue_waste=""
 green_waste=""
 yellow_waste=""
 startButtons=""
+endButtons=""
 
 [rendering]
 
