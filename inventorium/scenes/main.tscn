@@ -22,7 +22,7 @@ metadata/_edit_vertical_guides_ = [576.0]
 [node name="ground" parent="." instance=ExtResource("2_kyidw")]
 
 [node name="dustbin" parent="." instance=ExtResource("3_ymsau")]
-position = Vector2(0, 300)
+position = Vector2(93, 300)
 scale = Vector2(4.5, 4.59375)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -39,6 +39,7 @@ stream = ExtResource("7_7c30k")
 
 [node name="gameStart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5ln0j")
+volume_db = 1.0
 
 [node name="crow" type="AnimatedSprite2D" parent="."]
 

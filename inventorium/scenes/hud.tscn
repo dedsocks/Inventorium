@@ -1,19 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://1nqudskbscch"]
+[gd_scene load_steps=13 format=3 uid="uid://1nqudskbscch"]
 
 [ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="1_6gj6f"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_lq70v"]
 [ext_resource type="Texture2D" uid="uid://dv4ddtke01vip" path="res://assets/sprites/button.png" id="2_nkow4"]
 [ext_resource type="Texture2D" uid="uid://bfahugmpgyhps" path="res://assets/sprites/pauseButton.png" id="3_ffx6t"]
 [ext_resource type="Texture2D" uid="uid://2ulv5mtaobbx" path="res://assets/sprites/homeButton.png" id="4_wgbld"]
+[ext_resource type="Texture2D" uid="uid://cycbtbru4cuh7" path="res://assets/sprites/colorButton.png" id="6_hquer"]
+[ext_resource type="AudioStream" uid="uid://8fs3tgdnp5xg" path="res://assets/sound/switch-93378-[AudioTrimmer.com]-[AudioTrimmer.com]-[AudioTrimmer.com].mp3" id="7_nvufd"]
+[ext_resource type="AudioStream" uid="uid://bjbos06huarik" path="res://assets/sound/short-beep-tone-47916.mp3" id="8_15tax"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmpnq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlk8i"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0y7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3urg2"]
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_lq70v")
-metadata/_edit_vertical_guides_ = [594.0, 435.0, 746.0]
-metadata/_edit_horizontal_guides_ = [142.0, 244.0]
+metadata/_edit_vertical_guides_ = [594.0, 435.0, 746.0, 1069.0, 1152.0, 80.0]
+metadata/_edit_horizontal_guides_ = [142.0, 284.0]
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1
@@ -228,4 +235,128 @@ autowrap_mode = 2
 icon_alignment = 1
 expand_icon = true
 
+[node name="redButton" type="Button" parent="." groups=["colorButtons"]]
+visible = false
+modulate = Color(0.917647, 0, 0.215686, 0.541176)
+offset_left = 979.0
+offset_top = 456.0
+offset_right = 1126.0
+offset_bottom = 603.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e0y7f")
+icon = ExtResource("6_hquer")
+flat = true
+expand_icon = true
+
+[node name="yellowButton" type="Button" parent="." groups=["colorButtons"]]
+visible = false
+modulate = Color(1, 0.960784, 0.00392157, 0.447059)
+offset_left = 811.0
+offset_top = 500.0
+offset_right = 958.0
+offset_bottom = 647.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3urg2")
+icon = ExtResource("6_hquer")
+flat = true
+expand_icon = true
+
+[node name="blueButton" type="Button" parent="." groups=["colorButtons"]]
+visible = false
+modulate = Color(0, 0.054902, 0.890196, 0.603922)
+offset_left = 13.0
+offset_top = 456.0
+offset_right = 160.0
+offset_bottom = 603.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e0y7f")
+icon = ExtResource("6_hquer")
+flat = true
+expand_icon = true
+
+[node name="greenButton" type="Button" parent="." groups=["colorButtons"]]
+visible = false
+modulate = Color(0.027451, 0.960784, 0.00392157, 0.572549)
+offset_left = 176.0
+offset_top = 500.0
+offset_right = 323.0
+offset_bottom = 647.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3urg2")
+icon = ExtResource("6_hquer")
+flat = true
+expand_icon = true
+
+[node name="READY" type="Label" parent="." groups=["endButtons"]]
+visible = false
+anchors_preset = -1
+anchor_left = -0.0329306
+anchor_top = 0.111
+anchor_right = 1.06591
+anchor_bottom = 0.226728
+offset_left = 37.9361
+offset_top = -10.928
+offset_right = -67.9281
+offset_bottom = 114.08
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("1_6gj6f")
+theme_override_font_sizes/font_size = 150
+text = "READY"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SET" type="Label" parent="." groups=["endButtons"]]
+visible = false
+anchors_preset = -1
+anchor_left = -0.0329306
+anchor_top = 0.111
+anchor_right = 1.06591
+anchor_bottom = 0.226728
+offset_left = 37.9361
+offset_top = -10.928
+offset_right = -67.9281
+offset_bottom = 114.08
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("1_6gj6f")
+theme_override_font_sizes/font_size = 150
+text = "SET
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GO!!" type="Label" parent="." groups=["endButtons"]]
+visible = false
+anchors_preset = -1
+anchor_left = -0.0329306
+anchor_top = 0.111
+anchor_right = 1.06591
+anchor_bottom = 0.226728
+offset_left = 37.9361
+offset_top = -10.928
+offset_right = -67.9281
+offset_bottom = 114.08
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("1_6gj6f")
+theme_override_font_sizes/font_size = 150
+text = "GO!!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nvufd")
+
+[node name="beep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_15tax")
+
 [connection signal="pressed" from="retryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="endHomeButton" to="." method="_on_end_home_button_pressed"]
+[connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="redButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="yellowButton" to="." method="_on_yellow_button_pressed"]
+[connection signal="pressed" from="blueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="greenButton" to="." method="_on_green_button_pressed"]

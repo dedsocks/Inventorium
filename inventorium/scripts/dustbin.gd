@@ -3,26 +3,16 @@ extends CharacterBody2D
 enum state {BLUE, RED, GREEN, YELLOW}
 var status 
 
-func _process(delta):
-	
-	#color change detector
-	if Input.is_action_pressed("ui_down"):
+func colorChange(temp):
+	status = temp
+	if status == 0:
 		modulate = Color.DODGER_BLUE
-		status = state.BLUE
-	if Input.is_action_pressed("ui_right"):
+	if status == 1:
 		modulate = Color.RED
-		status = state.RED
-	if Input.is_action_pressed("ui_up"):
-		modulate = Color.CHARTREUSE
-		status = state.GREEN
-	if Input.is_action_pressed("ui_left"):
+	if status == 2:
+		modulate = Color.GREEN
+	if status == 3:
 		modulate = Color.YELLOW
-		status = state.YELLOW
-		
-	
-	
-	
-	move_and_slide()
 
 #obstacle and dustbin collision checker
 func _on_area_2d_area_entered(area: Area2D) -> void:
