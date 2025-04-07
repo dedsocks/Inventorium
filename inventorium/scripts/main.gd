@@ -1,8 +1,8 @@
 extends Node
 
 # Constants
-const MAX_SPEED = 10
-const START_SPEED = 0.4
+const MAX_SPEED = 900
+const START_SPEED = 330
 const CAM_START_POSITION = Vector2i(576, 324)
 const START_POSITION = Vector2i(93, 300)
 
@@ -25,11 +25,13 @@ var gameRunning: bool = false
 var screenSize: Vector2i
 var lastObs
 var groundHeight: int
+var groundWidth: int
 var message
 
 func _ready():
 	screenSize = get_window().size
 	groundHeight = $ground.get_node("Sprite2D").texture.get_height()
+	groundWidth = $ground.get_node("Sprite2D").texture.get_width()
 	
 	if not has_node("Obstacles"):
 		var obstacle_container = Node2D.new()
@@ -83,19 +85,22 @@ func new_game():
 	$gameStart.play()
 
 func _process(delta):
+	
 	if not gameRunning:
+		crow_mover()
 		return
 		
 	if speed >= MAX_SPEED:
 		speed = MAX_SPEED
 			
+	speed += delta*1.8*(1+(score/20.0))
+	
 	$dustbin/AnimatedSprite2D.play("move")
-	$dustbin.position.x += speed
-	$Camera2D.position.x += speed 
+	$dustbin.position.x += speed*delta
+	$Camera2D.position.x += speed*delta
 	
 	assignScore()
 	
-	speed += delta * 0.1  
 
 	if not $gameRunningMusic.playing:
 		$gameRunningMusic.play()
@@ -178,9 +183,6 @@ func ready_set_go():
 		button.show()
 	
 	# UI interface
-	$HUD/highScore.show()
-	$HUD/homeButton.show()
-	$HUD/pauseButton.show()
 	$startButton.hide()
 	$HUD/menuButton.hide()
 	$HUD/gameStart.hide()
@@ -247,3 +249,12 @@ func home():
 
 func signalPasser(message):
 	$dustbin.colorChange(message)
+
+func crow_mover():
+	if $crow.position.x >=-50:
+		$crow.position.x -= 0.1
+		$crow2.position.x -= 0.1
+	else:
+		$crow.position.x = 1182
+		$crow2.position.x = 1237
+		
