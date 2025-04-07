@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0dp6bdtaj2m2"]
+
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_wwht2"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwht2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_top = 35.0
+offset_right = 28.5
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "Paused"
+
+[node name="Resume" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = -10.5
+offset_top = 85.0
+offset_right = 59.5
+offset_bottom = 116.0
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = -6.5
+offset_top = 135.0
+offset_right = 58.5
+offset_bottom = 166.0
+text = "Restart"
+
+[node name="Settings" type="Button" parent="Label"]
+layout_mode = 0
+offset_left = -9.5
+offset_top = 182.0
+offset_right = 60.5
+offset_bottom = 213.0
+text = "Settings"
+
+[connection signal="pressed" from="Label/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Label/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Label/Settings" to="." method="_on_settings_pressed"]

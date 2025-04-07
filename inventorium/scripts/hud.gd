@@ -31,3 +31,13 @@ func _on_green_button_pressed() -> void:
 
 func click():
 	$buttonSound.play()
+
+
+func _on_pause_button_pressed() -> void:
+	click()
+	get_parent().pause()
+
+
+func _on_menu_button_pressed() -> void:
+	click()
+	get_parent().menu_pressed()

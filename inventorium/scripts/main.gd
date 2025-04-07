@@ -247,3 +247,49 @@ func home():
 
 func signalPasser(message):
 	$dustbin.colorChange(message)
+
+
+func resume():
+	get_tree().paused = false
+	$CanvasLayer/PauseMenu.visible = false
+	
+func pause():
+	get_tree().paused = true
+	$CanvasLayer/PauseMenu.visible = true
+
+
+func menu_pressed():
+	if $HUD/gameStart.visible == true: # For menu in Home page
+		$HUD/gameStart.visible = false
+		$HUD/menuButton.visible = false
+		$startButton.visible = false
+		
+	if $CanvasLayer/PauseMenu.visible == true and $CanvasLayer/PauseMenu/VBoxContainer.visible == true: # For menu in PauseMenu
+		$CanvasLayer/PauseMenu/VBoxContainer.visible = false
+		$CanvasLayer/PauseMenu/pauseLabel.visible = false
+		
+	
+	$CanvasLayer/Menu.visible = true
+	
+	
+func back_pressed_in_menu():
+	if $CanvasLayer/Menu/VBoxContainer.visible == true: # To go out of Menu
+		$CanvasLayer/Menu.visible = false
+		
+		if $CanvasLayer/Menu/VBoxContainer.visible == true and $CanvasLayer/PauseMenu/VBoxContainer.visible == true:
+			$HUD/gameStart.visible = true
+			$HUD/menuButton.visible = true
+			$startButton.visible = true
+		
+		if ($CanvasLayer/Menu/VBoxContainer.visible == true and $CanvasLayer/PauseMenu.visible == true):
+			$CanvasLayer/PauseMenu/VBoxContainer.visible = true
+			$CanvasLayer/PauseMenu/pauseLabel.visible = true
+	
+	if $CanvasLayer/Menu/VBoxContainer.visible == false: # To go out of settings
+		$CanvasLayer/Menu/VBoxContainer.visible = true
+		$CanvasLayer/Menu/VBoxContainer2.visible = false
+
+
+func settings_pressed():
+	$CanvasLayer/Menu/VBoxContainer.visible = false
+	$CanvasLayer/Menu/VBoxContainer2.visible = true

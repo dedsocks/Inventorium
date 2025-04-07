@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1nqudskbscch"]
+[gd_scene load_steps=14 format=3 uid="uid://1nqudskbscch"]
 
 [ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="1_6gj6f"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_lq70v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cycbtbru4cuh7" path="res://assets/sprites/colorButton.png" id="6_hquer"]
 [ext_resource type="AudioStream" uid="uid://8fs3tgdnp5xg" path="res://assets/sound/switch-93378-[AudioTrimmer.com]-[AudioTrimmer.com]-[AudioTrimmer.com].mp3" id="7_nvufd"]
 [ext_resource type="AudioStream" uid="uid://bjbos06huarik" path="res://assets/sound/short-beep-tone-47916.mp3" id="8_15tax"]
+[ext_resource type="PackedScene" uid="uid://c0dp6bdtaj2m2" path="res://scenes/pause.tscn" id="9_fpapp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmpnq"]
 
@@ -160,7 +161,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="endHomeButton" type="Button" parent="." groups=["endButtons"]]
-visible = false
 offset_left = 476.0
 offset_top = 345.0
 offset_right = 677.0
@@ -353,8 +353,13 @@ stream = ExtResource("7_nvufd")
 [node name="beep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_15tax")
 
+[node name="PauseMenu" parent="." instance=ExtResource("9_fpapp")]
+visible = false
+
+[connection signal="pressed" from="menuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="retryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="endHomeButton" to="." method="_on_end_home_button_pressed"]
+[connection signal="pressed" from="pauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="homeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="redButton" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="yellowButton" to="." method="_on_yellow_button_pressed"]
