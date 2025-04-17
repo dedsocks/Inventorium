@@ -87,7 +87,7 @@ func new_game():
 func _process(delta):
 	
 	if not gameRunning:
-		crow_mover()
+		crow_mover(delta)
 		return
 		
 	if speed >= MAX_SPEED:
@@ -250,10 +250,10 @@ func home():
 func signalPasser(message):
 	$dustbin.colorChange(message)
 
-func crow_mover():
+func crow_mover(delta):
 	if $crow.position.x >=-50:
-		$crow.position.x -= 0.1
-		$crow2.position.x -= 0.1
+		$crow.position.x -= 200*delta
+		$crow2.position.x -= 200*delta
 	else:
 		$crow.position.x = 1182
 		$crow2.position.x = 1237
