@@ -111,6 +111,11 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_c0w12")
 centered = false
 
+[node name="Ground" type="Sprite2D" parent="grass"]
+position = Vector2(1152, 328)
+scale = Vector2(0.50625, 0.50625)
+texture = ExtResource("8_dld8t")
+
 [node name="ground" type="ParallaxLayer" parent="."]
 visible = false
 motion_scale = Vector2(0.2, 1)
@@ -150,3 +155,5 @@ sprite_frames = SubResource("SpriteFrames_qyrwg")
 autoplay = "default"
 frame = 4
 frame_progress = 0.703976
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]

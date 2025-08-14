@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2pgwf6fwnktn"]
+[gd_scene load_steps=15 format=3 uid="uid://c2pgwf6fwnktn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bwtbe"]
 [ext_resource type="PackedScene" uid="uid://isvsme53i3el" path="res://scenes/bg.tscn" id="1_f0xhv"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://cgf8d8lnbcqp4" path="res://assets/sound/Pixel Rush Paradise.mp3" id="8_5ln0j"]
 [ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="9_1nsl3"]
 [ext_resource type="Texture2D" uid="uid://dv4ddtke01vip" path="res://assets/sprites/button.png" id="10_rrkyw"]
+[ext_resource type="PackedScene" uid="uid://c0dp6bdtaj2m2" path="res://scenes/pause.tscn" id="11_q44ou"]
+[ext_resource type="PackedScene" uid="uid://dkdb4cdxs5xwy" path="res://scenes/menu.tscn" id="12_70if8"]
+[ext_resource type="PackedScene" uid="uid://0bux4vnvng3x" path="res://scenes/tutorial.tscn" id="13_buy0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4shj"]
 atlas = ExtResource("5_b7g70")
@@ -135,5 +138,16 @@ flat = true
 autowrap_mode = 2
 icon_alignment = 1
 expand_icon = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_q44ou")]
+visible = false
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("12_70if8")]
+visible = false
+
+[node name="Tutorial" parent="." instance=ExtResource("13_buy0g")]
+visible = false
 
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

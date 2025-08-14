@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://kngbhf7epf5u"]
+
+[ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="1_xt38c"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(0.635294, 0.635294, 0.635294, 1)
+Button/colors/icon_pressed_color = Color(0.635294, 0.635294, 0.635294, 0.427451)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("1_xt38c")
+Button/icons/icon = null

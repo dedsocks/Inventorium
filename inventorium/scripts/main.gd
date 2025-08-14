@@ -1,8 +1,8 @@
 extends Node
 
 # Constants
-const MAX_SPEED = 900
-const START_SPEED = 330
+const MAX_SPEED = 1000
+const START_SPEED = 400
 const CAM_START_POSITION = Vector2i(576, 324)
 const START_POSITION = Vector2i(93, 300)
 
@@ -98,16 +98,16 @@ func _process(delta):
 	$dustbin/AnimatedSprite2D.play("move")
 	$dustbin.position.x += speed*delta
 	$Camera2D.position.x += speed*delta
-	
 	assignScore()
 	
+	speed += delta * 0.1 * 20  
 
 	if not $gameRunningMusic.playing:
 		$gameRunningMusic.play()
 		
 	# Code for shifting ground
-	if $Camera2D.position.x - $ground.position.x > 1.5 * screenSize.x:
-		$ground.position.x += screenSize.x
+	'''if $Camera2D.position.x - $ground.position.x > 1.5 * screenSize.x:
+		$ground.position.x += screenSize.x'''
 	
 	generate_obs()
 
@@ -149,7 +149,7 @@ func gameOver():
 	$HUD/homeButton.hide()
 	$HUD/Label.hide()
 	$HUD/gameOver.show()
-	$HUD/gameOverScore.text = 'Highscore : ' + '\nScore : ' + str(score) 
+	$HUD/gameOverScore.text = 'Highscore : 154' + '\nScore : ' + str(score) 
 	$HUD/gameOverScore.show()
 	
 	if $dustbin/oof:
@@ -179,15 +179,25 @@ func ready_set_go():
 	#display color buttons
 	var buttons = $HUD.get_tree().get_nodes_in_group("colorButtons")
 	
+	
+	
 	for button in buttons:
 		button.show()
 	
 	# UI interface
+	$HUD/Label.hide()
+	$HUD/highScore.hide()
+	$HUD/homeButton.show()
+	$HUD/pauseButton.show()
 	$startButton.hide()
 	$HUD/menuButton.hide()
 	$HUD/gameStart.hide()
 	$HUD/READY.show()
 	$HUD/beep.play()
+	$HUD/pauseButton.hide()
+	$HUD/homeButton.hide()
+	
+	$gameRunningMusic.stop()
 	
 	# Ready set go creator
 	await get_tree().create_timer(1.0).timeout
@@ -223,17 +233,6 @@ func restart():
 	await ready_set_go()
 	start_gameplay()
 
-# Vardans code 
-func _on_pause_button_pressed():
-	pass
-
-# Vardans code 
-func _on_resume_button_pressed():
-	pass
-
-# Vardans code 
-func _on_menu_button_pressed():
-	pass
 
 func home():
 	$dustbin/AnimatedSprite2D.play("idle")
@@ -250,11 +249,59 @@ func home():
 func signalPasser(message):
 	$dustbin.colorChange(message)
 
-func crow_mover(delta):
-	if $crow.position.x >=-50:
-		$crow.position.x -= 200*delta
-		$crow2.position.x -= 200*delta
-	else:
-		$crow.position.x = 1182
-		$crow2.position.x = 1237
+
+func resume():
+	get_tree().paused = false
+	$CanvasLayer/PauseMenu.visible = false
+	
+func pause():
+	get_tree().paused = true
+	$CanvasLayer/PauseMenu.visible = true
+
+
+func menu_pressed():
+	if $HUD/gameStart.visible == true: # For menu in Home page
+		$HUD/gameStart.visible = false
+		$HUD/menuButton.visible = false
+		$startButton.visible = false
 		
+	if $CanvasLayer/PauseMenu.visible == true and $CanvasLayer/PauseMenu/VBoxContainer.visible == true: # For menu in PauseMenu
+		$CanvasLayer/PauseMenu/VBoxContainer.visible = false
+		$CanvasLayer/PauseMenu/pauseLabel.visible = false
+		$CanvasLayer/PauseMenu/ColorRect.visible = false
+		
+	
+	$CanvasLayer/Menu.visible = true
+	
+	
+func back_pressed_in_menu():
+	if $CanvasLayer/Menu/VBoxContainer.visible == true: # To go out of Menu
+		$CanvasLayer/Menu.visible = false
+		
+		if $CanvasLayer/Menu/VBoxContainer.visible == true and $CanvasLayer/PauseMenu/VBoxContainer.visible == true:
+			$HUD/gameStart.visible = true
+			$HUD/menuButton.visible = true
+			$startButton.visible = true
+		
+		if ($CanvasLayer/Menu/VBoxContainer.visible == true and $CanvasLayer/PauseMenu.visible == true):
+			$CanvasLayer/PauseMenu/VBoxContainer.visible = true
+			$CanvasLayer/PauseMenu/pauseLabel.visible = true
+			$CanvasLayer/PauseMenu/ColorRect.visible = true
+	
+	if $CanvasLayer/Menu/VBoxContainer.visible == false: # To go out of settings
+		$CanvasLayer/Menu/VBoxContainer.visible = true
+		$CanvasLayer/Menu/VBoxContainer2.visible = false
+
+
+func settings_pressed():
+	$CanvasLayer/Menu/VBoxContainer.visible = false
+	$CanvasLayer/Menu/VBoxContainer2.visible = true
+	
+func show_tutorial():
+	$CanvasLayer.hide()
+	$Tutorial.show()
+	
+func menu_call():
+	$Tutorial.hide()
+	$CanvasLayer.show()
+	

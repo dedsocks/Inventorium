@@ -6,6 +6,7 @@
 size = Vector2(2304, 68.5)
 
 [node name="ground" type="StaticBody2D"]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.50625, 0.50625)
