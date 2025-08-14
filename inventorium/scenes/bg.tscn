@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://isvsme53i3el"]
+[gd_scene load_steps=17 format=3 uid="uid://isvsme53i3el"]
 
 [ext_resource type="Texture2D" uid="uid://c4t67m57ptnfy" path="res://assets/background/background.png" id="1_nax64"]
 [ext_resource type="Texture2D" uid="uid://cy0o1etsqr1x2" path="res://assets/background/bg.png" id="2_lffb2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://8h3jjw0dpedp" path="res://assets/background/grass.png" id="4_c0w12"]
 [ext_resource type="Texture2D" uid="uid://dm0xtofg1pdv1" path="res://assets/background/birds.png" id="5_7vm01"]
 [ext_resource type="Texture2D" uid="uid://tlosqvp0v2k1" path="res://assets/sprites/crow_spritesheet.png" id="7_fmfdb"]
+[ext_resource type="Texture2D" uid="uid://c14p02vs84btx" path="res://assets/background/ground.png" id="8_dld8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g43r7"]
 atlas = ExtResource("7_fmfdb")
@@ -110,6 +111,22 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_c0w12")
 centered = false
 
+[node name="Ground" type="Sprite2D" parent="grass"]
+position = Vector2(1152, 328)
+scale = Vector2(0.50625, 0.50625)
+texture = ExtResource("8_dld8t")
+
+[node name="ground" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ground"]
+position = Vector2(0, -96)
+scale = Vector2(0.506151, 0.6)
+texture = ExtResource("8_dld8t")
+centered = false
+
 [node name="birds" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1152, 0)
@@ -138,3 +155,5 @@ sprite_frames = SubResource("SpriteFrames_qyrwg")
 autoplay = "default"
 frame = 4
 frame_progress = 0.703976
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://0bux4vnvng3x"]
+
+[ext_resource type="Texture2D" uid="uid://7i8ypbausrvn" path="res://assets/sprites/medicineInfo - Copy.png" id="1_4gmpo"]
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_44bml"]
+[ext_resource type="Texture2D" uid="uid://ctnbk80lgvicn" path="res://assets/sprites/gloveInfo.png" id="2_tov2a"]
+[ext_resource type="Texture2D" uid="uid://b3j44ddsdkp1x" path="res://assets/sprites/appleInfo - Copy.png" id="3_h6t6r"]
+[ext_resource type="Texture2D" uid="uid://b8c4i1wiksgva" path="res://assets/sprites/gameplayLabels.png" id="4_34drs"]
+[ext_resource type="Texture2D" uid="uid://dpkk0et8cq2xb" path="res://assets/sprites/bottleInfo - Copy.png" id="4_n64rr"]
+[ext_resource type="FontFile" uid="uid://ce5ty20e1lf5d" path="res://assets/fonts/Ruler 9.ttf" id="5_kaou1"]
+[ext_resource type="Texture2D" uid="uid://dmoiw0qs5003o" path="res://assets/sprites/back_arrow.png" id="7_hntyj"]
+[ext_resource type="AudioStream" uid="uid://b4seotdpbn6dj" path="res://assets/sound/switch-93378.mp3" id="10_kr5r1"]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_44bml")
+metadata/_edit_vertical_guides_ = [564.0, 282.0, 863.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.67451)
+
+[node name="DustbinColorSelection" type="Label" parent="."]
+offset_left = 199.0
+offset_top = 100.0
+offset_right = 1034.0
+offset_bottom = 200.0
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 80
+text = "Dustbin Color Selection"
+justification_flags = 160
+
+[node name="back" type="Button" parent="."]
+process_mode = 3
+offset_left = 19.0
+offset_top = 25.0
+offset_right = 135.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 70
+icon = ExtResource("7_hntyj")
+flat = true
+autowrap_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="gameplayLabels" type="VBoxContainer" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Sprite2D" type="Sprite2D" parent="gameplayLabels"]
+position = Vector2(589, 363)
+texture = ExtResource("4_34drs")
+
+[node name="tappingLabel" type="Label" parent="."]
+visible = false
+offset_left = 158.0
+offset_top = 513.0
+offset_right = 486.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 28
+text = "click on the colored 
+buttons to change 
+the color of the dustbin "
+horizontal_alignment = 1
+
+[node name="tappingLabel2" type="Label" parent="."]
+visible = false
+offset_left = 439.0
+offset_top = 507.0
+offset_right = 767.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 28
+text = "collection of correct
+waste item 
+rewards points"
+horizontal_alignment = 1
+
+[node name="tappingLabel3" type="Label" parent="."]
+visible = false
+offset_left = 709.0
+offset_top = 503.0
+offset_right = 1037.0
+offset_bottom = 636.0
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 28
+text = "collection of wrong
+waste item with 
+wrong dustbin
+ends the game"
+horizontal_alignment = 1
+
+[node name="colorLabels2" type="VBoxContainer" parent="."]
+offset_left = 57.0
+offset_top = 25.0
+offset_right = 1082.0
+offset_bottom = 25.0
+
+[node name="red" type="Sprite2D" parent="colorLabels2"]
+position = Vector2(775, 236)
+scale = Vector2(0.255258, 0.263655)
+texture = ExtResource("1_4gmpo")
+
+[node name="yellow" type="Sprite2D" parent="colorLabels2"]
+position = Vector2(778.189, 406.253)
+scale = Vector2(0.257691, 0.262059)
+texture = ExtResource("2_tov2a")
+
+[node name="green" type="Sprite2D" parent="colorLabels2"]
+position = Vector2(287.189, 405.253)
+scale = Vector2(0.525346, 0.505929)
+texture = ExtResource("3_h6t6r")
+
+[node name="blue" type="Sprite2D" parent="colorLabels2"]
+position = Vector2(290, 248)
+scale = Vector2(0.520563, 0.520563)
+texture = ExtResource("4_n64rr")
+
+[node name="gameplayMechanics" type="Label" parent="."]
+visible = false
+offset_left = 342.0
+offset_top = 27.0
+offset_right = 827.0
+offset_bottom = 230.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_kaou1")
+theme_override_font_sizes/font_size = 100
+text = "Gameplay
+Mechanics"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_kr5r1")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
