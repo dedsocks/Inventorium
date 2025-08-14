@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://isvsme53i3el" path="res://scenes/bg.tscn" id="1_f0xhv"]
 [ext_resource type="PackedScene" uid="uid://dmvyv7mil5bbx" path="res://scenes/ground.tscn" id="2_kyidw"]
 [ext_resource type="PackedScene" uid="uid://cilh87d7y20vg" path="res://scenes/dustbin.tscn" id="3_ymsau"]
-[ext_resource type="Texture2D" uid="uid://tlosqvp0v2k1" path="res://assets/sprites/crow_spritesheet.png" id="5_b7g70"]
 [ext_resource type="PackedScene" uid="uid://1nqudskbscch" path="res://scenes/hud.tscn" id="5_viec4"]
 [ext_resource type="AudioStream" uid="uid://cci1y4ywdyeda" path="res://assets/sound/Pixelated Love.mp3" id="6_atnfe"]
 [ext_resource type="AudioStream" uid="uid://k8bx8p8bplbu" path="res://assets/sound/negative_beeps-6008.mp3" id="7_7c30k"]
@@ -14,63 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://c0dp6bdtaj2m2" path="res://scenes/pause.tscn" id="11_q44ou"]
 [ext_resource type="PackedScene" uid="uid://dkdb4cdxs5xwy" path="res://scenes/menu.tscn" id="12_70if8"]
 [ext_resource type="PackedScene" uid="uid://0bux4vnvng3x" path="res://scenes/tutorial.tscn" id="13_buy0g"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4shj"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l72bd"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mt1gb"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vta1l"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s18h3"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imvgn"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rx20y"]
-atlas = ExtResource("5_b7g70")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ujmfd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4shj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l72bd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mt1gb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vta1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s18h3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_imvgn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rx20y")
-}],
-"loop": true,
-"name": &"default",
-"speed": 13.0
-}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r836t"]
 
@@ -85,21 +27,6 @@ metadata/_edit_vertical_guides_ = [576.0]
 [node name="dustbin" parent="." instance=ExtResource("3_ymsau")]
 position = Vector2(93, 300)
 scale = Vector2(4.5, 4.59375)
-
-[node name="crow" type="AnimatedSprite2D" parent="."]
-position = Vector2(1182, 61)
-scale = Vector2(0.429688, 0.429688)
-sprite_frames = SubResource("SpriteFrames_ujmfd")
-autoplay = "default"
-frame = 3
-frame_progress = 0.410365
-
-[node name="crow2" type="AnimatedSprite2D" parent="."]
-position = Vector2(1237, 33)
-scale = Vector2(0.429688, 0.429688)
-sprite_frames = SubResource("SpriteFrames_ujmfd")
-autoplay = "default"
-frame_progress = 0.261382
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -116,6 +43,8 @@ stream = ExtResource("7_7c30k")
 [node name="gameStart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5ln0j")
 volume_db = 1.0
+
+[node name="crow" type="AnimatedSprite2D" parent="."]
 
 [node name="startButton" type="Button" parent="." groups=["startButtons"]]
 offset_left = 476.0
